@@ -38,10 +38,9 @@ struct homeChildView: View {
     }
     
     var body: some View {
-        NavigationView {
             List {
                 HStack {
-                    TextField("Search lists..", text: $searchQuery)
+                    TextField("Add items..", text: $searchQuery)
                         .padding()
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Button(action: {
@@ -68,8 +67,7 @@ struct homeChildView: View {
                 }
                 .onDelete(perform: viewModel.deleteItem)
             }
-            .navigationTitle("Grocery List")
-        }
+        
     }
 }
 

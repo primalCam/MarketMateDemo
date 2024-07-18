@@ -25,7 +25,7 @@ struct MarketMateApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            homeView()
         }
         .modelContainer(sharedModelContainer)
     }

@@ -1,18 +1,30 @@
-//
-//  GroceryListView.swift
-//  MarketMate
-//
-//  Created by Cameryn Smith on 7/19/24.
-//
-
 import SwiftUI
 
 struct GroceryListView: View {
+    var list: GroceryList
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            List {
+                ForEach(list.items) { item in
+                    HStack {
+                        Text(item.name)
+                        Spacer()
+                        Text("Qty: \(item.quantity)")
+                    }
+                }
+            }
+        }
+        .navigationTitle(list.name)
     }
 }
 
-#Preview {
-    GroceryListView()
+struct GroceryListView_Previews: PreviewProvider {
+    static var previews: some View {
+        let sampleList = GroceryList(name: "Sample List", items: [
+            GroceryItem(name: "Apples", quantity: 2),
+            GroceryItem(name: "Bananas", quantity: 5)
+        ])
+        GroceryListView(list: sampleList)
+    }
 }

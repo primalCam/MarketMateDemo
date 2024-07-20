@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct GroceryViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class GroceryViewModel: ObservableObject {
+    @Published var groceryLists: [GroceryList] = []
+    
+    //Function to add new grocery lists
+    func addList(name: String, items: [GroceryItem] = []) {
+        let newList = GroceryList(name: name, items: items)
+        groceryLists.append(newList)
     }
-}
-
-#Preview {
-    GroceryViewModel()
 }

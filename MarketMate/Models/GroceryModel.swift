@@ -5,14 +5,18 @@
 //  Created by Cameryn Smith on 7/19/24.
 //
 
-import SwiftUI
+import Foundation
+// Defined my data model for Grocery items in a list
 
-struct GroceryModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+struct GroceryItem: Identifiable {
+    var id = UUID()
+        var name: String
+        var quantity: Int
 }
 
-#Preview {
-    GroceryModel()
+
+struct GroceryList: Identifiable {
+    var id = UUID()
+    var name: String
+    var items: [GroceryItem] = []
 }

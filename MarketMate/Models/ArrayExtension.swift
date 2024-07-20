@@ -1,18 +1,7 @@
-//
-//  ArrayExtension.swift
-//  MarketMate
-//
-//  Created by Cameryn Smith on 7/19/24.
-//
+import Foundation
 
-import SwiftUI
-
-struct ArrayExtension: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+extension Collection {
+    subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
     }
-}
-
-#Preview {
-    ArrayExtension()
 }

@@ -6,10 +6,21 @@
 //
 
 import SwiftUI
+import Combine
 
 struct listView: View {
+    
+    class GroceryViewModel: ObservableObject {
+        @Published var groceryLists: [GroceryList] = []
+        
+        func addList(name: String, items: [GroceryItem]) {
+            let newList = GroceryList(name: name, items: items)
+            groceryLists.append(newList)
+        }
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, Pekalis!")
     }
 }
 
